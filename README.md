@@ -15,5 +15,6 @@ Author: Abraham Adberstein
   with the second hex byte. After that encode the integer into an ascii hex. Concatenate all ascii characters.
 
 3. **Single Byte XOR Cipher**
+
   Use the code from the Fixed XOR challenge to find the plaintext. After trying single characters, X was the
-  key to xor the cipher-text. Then the cipher-text had to be encoded into ascii. 
+  key to xor the cipher-text. Then the cipher-text had to be encoded into ascii.
