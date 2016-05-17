@@ -12,10 +12,12 @@
 int binary_to_decimal(char *bin);
 
 char *hex_to_base64(char *string){
+  //Get length of string, and the number of groups of 6 bits.
   int STRING_LEN = strlen(string);
   int binLen = STRING_LEN * 4;
   char binaryString[binLen+1];
 
+  //extra digits if they do not make a group of 6, get the length of base64 string
   int extraDigits = binLen % 6;
   int enWordLen = (binLen/6) + extraDigits + 1;
   char encodedWord[enWordLen];
@@ -24,6 +26,7 @@ char *hex_to_base64(char *string){
 
   char base63[64] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N','O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0','1','2', '3', '4','5','6','7','8','9','+', '\\' };
 
+  //convert each hex to binary
   for (i = 0; i < STRING_LEN; i++){
     char z[STRING_LEN];
     switch(string[i]){
@@ -52,6 +55,7 @@ char *hex_to_base64(char *string){
       strcat(binaryString, z);
     }
   }
+  //group every 6 bits
   for(i = 0; i < enWordLen; i++){
     char substr[7];
     int digits = 6;
@@ -63,13 +67,17 @@ char *hex_to_base64(char *string){
       break;
 
     strncpy(substr, binaryString+i*6, digits);
+    //every 6 bits convert to decimal
     int num = binary_to_decimal(substr);
+    //from decimal to base64
     encodedWord[count] = base63[num];
     count++;
   }
 
+  //make string
   encodedWord[enWordLen] = '\0';
 
+  //return result
   char *result = malloc(enWordLen);
   strcpy(result, encodedWord);
 
