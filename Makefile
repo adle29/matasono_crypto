@@ -3,7 +3,7 @@ TARGET = main
 DEP = hex_to_base64.o fixed_xor.o single_byte_xor.o
 
 run: $(TARGET).o $(DEP)
-	$(CC) $(TARGET).o $(DEP) -o run
+	$(CC) $(TARGET).o $(DEP) -o main
 
 main.o: $(TARGET).c modules.h
 	$(CC) -c $(TARGET).c
