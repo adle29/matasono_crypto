@@ -21,11 +21,11 @@ char *fixed_xor(char *buffer1, char *buffer2){
     b1 = buffer1[i] - '0';
     b2 = buffer2[i] - '0';
 
-    //if bigger than 49 it means it is not within [0-9]
-    if ( b1 >= 49 )
+    //if bigger than 49 it means it is not within [0-9] 49 - x = 10
+    if ( b1 >= 10 )
       b1 -= 39;
 
-    if ( b2 >= 49 )
+    if ( b2 >= 10 )
       b2 -= 39;
 
     // xor the bytes and encode to hex again
@@ -34,7 +34,7 @@ char *fixed_xor(char *buffer1, char *buffer2){
 
     //if bigger tahn 57 add padding to reach corresponding ascii characters
     if (encodeCharater > 57)
-      encodeCharater += 40;
+      encodeCharater += 39;
 
     result[i] =  encodeCharater;
   }

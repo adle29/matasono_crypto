@@ -1,11 +1,12 @@
 CC = gcc
-TARGET = run
+TARGET = main
+DEP = hex_to_base64.o fixed_xor.o single_byte_xor.o
 
-run: main.o hex_to_base64.o fixed_xor.o
-	$(CC) main.o hex_to_base64.o fixed_xor.o -o run
+run: $(TARGET).o $(DEP)
+	$(CC) $(TARGET).o $(DEP) -o run
 
-main.o: main.c modules.h
-	$(CC) -c main.c
+main.o: $(TARGET).c modules.h
+	$(CC) -c $(TARGET).c
 
 hex_to_base64.o: hex_to_base64.c modules.h
 	$(CC) -c hex_to_base64.c
@@ -13,5 +14,8 @@ hex_to_base64.o: hex_to_base64.c modules.h
 fixed_xor.o: fixed_xor.c modules.h
 	$(CC) -c fixed_xor.c
 
+single_byte_xor.o: single_byte_xor.c modules.h
+	$(CC) -c single_byte_xor.c
+
 clean:
-	$(RM) $(TARGET) *.o run
+	$(RM) $(TARGET) *.o
