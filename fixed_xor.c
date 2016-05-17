@@ -1,3 +1,8 @@
+/*
+  Author: Abraham Adberstein
+  Date: May 16, 2016
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
