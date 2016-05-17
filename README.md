@@ -11,5 +11,5 @@ Author: Abraham Adberstein
 
 2. **Fixed XOR**
 
-  When trying to xor to hex strings, I took each individual hex byte, converted it into decimal, xor it
-  with the second hex byte. After that I encoded the integer into an ascii hex. Concatenated all ascii characters.
+  When trying two xor to hex strings, take each individual hex byte, converted it into decimal, and xor it
+  with the second hex byte. After that encode the integer into an ascii hex. Concatenate all ascii characters.
