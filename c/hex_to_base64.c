@@ -16,7 +16,6 @@ char *hex_to_base64(char *string){
   int STRING_LEN = strlen(string);
   int binLen = STRING_LEN * 4;
   char binaryString[binLen+1];
-
   //extra digits if they do not make a group of 6, get the length of base64 string
   int extraDigits = binLen % 6;
   int enWordLen = (binLen/6) + extraDigits + 1;
